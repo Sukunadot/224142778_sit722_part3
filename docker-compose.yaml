@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  book_catalog:
+    image: book-catalog:latest
+    build:
+      context: ./book_catalog
+      dockerfile: Dockerfile
+    ports:
+      - "8000"
+    environment:
+      - DATABASE_URL=postgresql://bhanu_sit722_part3_t6ov_user:xV85TAbyDUUkwYDy8TmnBeDmdOKECIiv@dpg-crftd3rqf0us73dc5c2g-a.oregon-postgres.render.com/bhanu_sit722_part3_t6ov
+
+  inventory_management:
+    image: inventory:latest
+    build:
+      context: ./inventory_management
+      dockerfile: Dockerfile
+    ports:
+      - "8001"
+    environment:
+      - DATABASE_URL=postgresql://bhanu_sit722_part3_t6ov_user:xV85TAbyDUUkwYDy8TmnBeDmdOKECIiv@dpg-crftd3rqf0us73dc5c2g-a.oregon-postgres.render.com/bhanu_sit722_part3_t6ov
